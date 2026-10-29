@@ -1,7 +1,6 @@
-
 /* =========================================
    KHAIRUNNISA'S CREATIVE PORTFOLIO
-   JavaScript interactions
+   Interactive JavaScript
 ========================================= */
 
 "use strict";
@@ -62,6 +61,7 @@ if (menuToggle && navLinks) {
 /* 3. DARK / LIGHT THEME SWITCHER */
 
 const themeToggle = document.getElementById("theme-toggle");
+
 const savedTheme = (() => {
     try {
         return localStorage.getItem("portfolio-theme");
@@ -81,10 +81,12 @@ function applyTheme(theme) {
 
     if (themeToggle) {
         themeToggle.textContent = darkMode ? "☀" : "☾";
+
         themeToggle.setAttribute(
             "aria-label",
             darkMode ? "Switch to light theme" : "Switch to dark theme"
         );
+
         themeToggle.title = darkMode
             ? "Switch to light theme"
             : "Switch to dark theme";
@@ -217,11 +219,13 @@ updateBackToTop();
 
 if (backToTop) {
     backToTop.addEventListener("click", function () {
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
         window.scrollTo({
             top: 0,
-            behavior: window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches ? "auto" : "smooth"
+            behavior: reduceMotion ? "auto" : "smooth"
         });
     });
 }
@@ -243,7 +247,6 @@ if (copyEmailButton) {
             await navigator.clipboard.writeText(emailAddress);
             copyEmailButton.textContent = "Email copied! ✓";
         } catch (error) {
-            // Fallback for local files or browsers without clipboard access.
             const temporaryInput = document.createElement("textarea");
 
             temporaryInput.value = emailAddress;
@@ -264,11 +267,9 @@ if (copyEmailButton) {
 
             temporaryInput.remove();
 
-            if (copied) {
-                copyEmailButton.textContent = "Email copied! ✓";
-            } else {
-                copyEmailButton.textContent = emailAddress;
-            }
+            copyEmailButton.textContent = copied
+                ? "Email copied! ✓"
+                : emailAddress;
         }
 
         window.setTimeout(function () {
@@ -276,7 +277,6 @@ if (copyEmailButton) {
         }, 2500);
     });
 }
-
 
 /* 9. CONTACT FORM VALIDATION AND OPEN GMAIL */
 
@@ -329,7 +329,6 @@ if (contactForm && formStatus) {
     });
 }
 
-
 /* 10. PRINT OR SAVE PORTFOLIO AS PDF */
 
 const printButton = document.getElementById("print-resume");
@@ -362,7 +361,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
                 block: "start"
             });
 
-            // Keep the URL hash in sync with the selected section.
             if (window.location.hash !== targetId) {
                 history.replaceState(null, "", targetId);
             }
@@ -386,6 +384,262 @@ if (profileImage) {
     });
 }
 
-/* INITIALISE */
+/* ========================================
+   13. PROJECT DETAIL MODAL
+======================================== */
 
-console.info("Khairunnisa's portfolio JavaScript loaded successfully.");
+const projectGrid = document.querySelector(".project-grid");
+
+if (projectGrid) {
+    const modal = document.createElement("div");
+    modal.className = "project-modal";
+    modal.hidden = true;
+
+    modal.innerHTML = `
+        <div class="project-modal-backdrop"
+             data-modal-close="true"></div>
+
+        <section class="project-modal-dialog"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="project-modal-title"
+                 tabindex="-1">
+
+            <button class="project-modal-close"
+                    type="button"
+                    aria-label="Close project details">
+                &times;
+            </button>
+
+            <div class="project-modal-content">
+                <p class="eyebrow">PROJECT DETAILS</p>
+                <h2 id="project-modal-title"></h2>
+                <div id="project-modal-description"></div>
+            </div>
+        </section>
+    `;
+
+    document.body.appendChild(modal);
+
+    const modalTitle = modal.querySelector("#project-modal-title");
+    const modalDescription =
+        modal.querySelector("#project-modal-description");
+    const modalClose = modal.querySelector(".project-modal-close");
+
+    let previousFocus = null;
+
+    function closeProjectModal() {
+        if (modal.hidden) return;
+
+        modal.hidden = true;
+        document.body.classList.remove("modal-open");
+
+        if (previousFocus) {
+            previousFocus.focus();
+        }
+    }
+
+    function openProjectModal(card, trigger) {
+        const title = card.querySelector("h3");
+
+        const description = card.querySelector(
+            ".project-content > p:not(.project-type):not(.project-tags)"
+        );
+
+        const tags = card.querySelector(".project-tags");
+        const achievement = card.querySelector(".achievement");
+
+        modalTitle.textContent = title
+            ? title.textContent.trim()
+            : "Project details";
+
+        modalDescription.replaceChildren();
+
+        [description, tags, achievement].forEach(function (element) {
+            if (!element) return;
+
+            const paragraph = document.createElement("p");
+            paragraph.textContent = element.textContent.trim();
+            modalDescription.appendChild(paragraph);
+        });
+
+        previousFocus = trigger;
+        modal.hidden = false;
+        document.body.classList.add("modal-open");
+        modalClose.focus();
+    }
+
+    projectGrid.querySelectorAll(".project-card").forEach(function (card) {
+        const content = card.querySelector(".project-content");
+
+        if (!content) return;
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "btn btn-outline project-details-button";
+        button.textContent = "Explore project details ↗";
+
+        button.addEventListener("click", function () {
+            openProjectModal(card, button);
+        });
+
+        content.appendChild(button);
+    });
+
+    modalClose.addEventListener("click", closeProjectModal);
+
+    modal.addEventListener("click", function (event) {
+        if (
+            event.target instanceof Element &&
+            event.target.dataset.modalClose === "true"
+        ) {
+            closeProjectModal();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (modal.hidden) return;
+
+        if (event.key === "Escape") {
+            closeProjectModal();
+            return;
+        }
+
+        if (event.key === "Tab") {
+            event.preventDefault();
+            modalClose.focus();
+        }
+    });
+}
+
+/* ========================================
+   14. SKILLS ACCORDION
+======================================== */
+
+document.querySelectorAll(".skill-group").forEach(function (group, index) {
+    const heading = group.querySelector("h4");
+    const panel = group.querySelector(".skill-tags");
+
+    if (!heading || !panel) return;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "skill-accordion-button";
+    button.id = "skill-toggle-" + index;
+    button.setAttribute("aria-expanded", "false");
+    button.textContent = heading.textContent.trim();
+
+    const panelId = "skill-panel-" + index;
+
+    panel.id = panelId;
+    panel.classList.add("skill-accordion-panel");
+    panel.setAttribute("aria-labelledby", button.id);
+    panel.hidden = true;
+
+    button.setAttribute("aria-controls", panelId);
+
+    heading.replaceWith(button);
+    group.classList.add("skill-accordion");
+
+    button.addEventListener("click", function () {
+        const isExpanded =
+            button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        panel.hidden = isExpanded;
+    });
+});
+
+/* ========================================
+   15. SCROLL PROGRESS INDICATOR
+======================================== */
+
+(function () {
+    const progress = document.createElement("div");
+
+    progress.className = "scroll-progress";
+    progress.setAttribute("aria-hidden", "true");
+
+    document.body.appendChild(progress);
+
+    let ticking = false;
+
+    function updateProgress() {
+        const scrollable =
+            document.documentElement.scrollHeight - window.innerHeight;
+
+        const percentage = scrollable > 0
+            ? (window.scrollY / scrollable) * 100
+            : 0;
+
+        progress.style.width =
+            Math.min(100, Math.max(0, percentage)) + "%";
+
+        ticking = false;
+    }
+
+    window.addEventListener("scroll", function () {
+        if (!ticking) {
+            window.requestAnimationFrame(updateProgress);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    window.addEventListener("resize", updateProgress);
+
+    updateProgress();
+})();
+
+/* ========================================
+   16. SUBTLE POINTER TILT FOR PROJECT CARDS
+======================================== */
+
+(function () {
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const finePointer = window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+    ).matches;
+
+    if (reduceMotion || !finePointer) return;
+
+    document.querySelectorAll(".project-card").forEach(function (card) {
+        card.addEventListener("pointermove", function (event) {
+            const rect = card.getBoundingClientRect();
+
+            const x = (event.clientX - rect.left) / rect.width;
+            const y = (event.clientY - rect.top) / rect.height;
+
+            const rotateY = (x - 0.5) * 3.5;
+            const rotateX = (0.5 - y) * 3.5;
+
+            card.style.transform =
+                "perspective(900px) rotateX(" + rotateX +
+                "deg) rotateY(" + rotateY +
+                "deg) translateY(-2px)";
+        });
+
+        card.addEventListener("pointerleave", function () {
+            card.style.transform = "";
+        });
+    });
+})();
+
+/* ========================================
+   17. SKILL TAG ACCESSIBILITY
+======================================== */
+
+document.querySelectorAll(".skill-tags span").forEach(function (tag) {
+    tag.setAttribute("tabindex", "0");
+    tag.setAttribute("role", "listitem");
+});
+
+/* ========================================
+   18. PAGE LOADED
+======================================== */
+
+console.info(
+    "Khairunnisa's interactive portfolio loaded successfully."
+);

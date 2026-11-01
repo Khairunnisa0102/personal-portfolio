@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Personal portfolio of a Multimedia Computing student at UNIMAS, showcasing UI/UX design, programming and database projects.">
+
+    <title>My Portfolio | Multimedia Computing</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="navbar container">
+
+            <a href="#home" class="logo">My Portfolio.</a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#activities" class="nav-link">Activities</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle"
+                    type="button" aria-label="Switch to dark mode">
+                    ☾
+                </button>
+
+                <button class="menu-toggle" id="menu-toggle"
+                    type="button" aria-label="Open navigation menu"
+                    aria-expanded="false" aria-controls="nav-menu">
+                    ☰
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+     <!-- HOME SECTION -->
+<section class="hero" id="home">
+    <div class="container hero-content">
+
+        <div class="hero-text">
+            <span class="hero-eyebrow">HELLO, WELCOME TO MY SPACE</span>
+
+            <h1>
+                I'm <span>Khairunnisa</span>
+            </h1>
+
+            <h2 class="hero-subtitle">
+                Multimedia Computing Student
+            </h2>
+
+            <p>
+                I enjoy exploring the connection between design
+                and technology. From creating user-friendly
+                interfaces to developing digital applications,
+                I like turning ideas into something useful.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View My Projects</a>
+                <a href="#contact" class="btn btn-outline">Let's Connect</a>
+            </div>
+
+            <div class="hero-socials">
+                <span>Find me on</span>
+                <a href="https://github.com/Khairunnisa0102"
+                   target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="https://www.linkedin.com/in/khairunnisa-junaidi-768984345/"
+                   target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="hero-image-frame">
+                <img
+                    src="images/profile.jpg"
+                    alt="Portrait of Khairunnisa"
+                    id="profile-image"
+                >
+
+                <div class="hero-image-caption">
+                    <span>BASED IN SARAWAK</span>
+                    <strong>Design · Code · Create</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        <!-- INTEREST STRIP -->
+        <div class="interest-strip">
+            <div class="container">
+                <p>
+                    UI/UX Design &nbsp; • &nbsp;
+                    Prototyping &nbsp; • &nbsp;
+                    Programming &nbsp; • &nbsp;
+                    Creative Technology
+                </p>
+            </div>
+        </div>
+
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">GET TO KNOW ME</span>
+                    <h2>About Me</h2>
+                    <p>A little introduction about myself and my interests.</p>
+                </div>
+
+                <div class="about-content">
+
+                    <div class="about-description reveal">
+                        <p>
+                            I am a Multimedia Computing undergraduate
+                            at Universiti Malaysia Sarawak (UNIMAS).
+                            I have a strong interest in user interface
+                            and user experience design, especially in
+                            creating digital products that are easy
+                            and enjoyable to use.
+                        </p>
+
+                        <p>
+                            Throughout my studies, I have gained
+                            experience in designing high-fidelity
+                            prototypes using Figma, developing
+                            applications with Java and working with
+                            relational databases using SQL.
+                        </p>
+
+                        <p>
+                            I enjoy working with others, learning new
+                            technologies and improving my skills
+                            through academic projects and creative
+                            challenges.
+                        </p>
+                    </div>
+
+                    <div class="about-card reveal">
+                        <h3>Quick Information</h3>
+
+                        <div class="quick-facts">
+                            <div>
+                                <strong>Course</strong>
+                                <span>Bachelor of Multimedia Computing with Honours</span>
+                            </div>
+
+                            <div>
+                                <strong>University</strong>
+                                <span>Universiti Malaysia Sarawak (UNIMAS)</span>
+                            </div>
+
+                            <div>
+                                <strong>Location</strong>
+                                <span>Sarawak, Malaysia</span>
+                            </div>
+
+                            <div>
+                                <strong>Career Interest</strong>
+                                <span>UI/UX Design and Digital Product Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SKILLS SECTION -->
+        <section class="skills-section">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">WHAT I CAN DO</span>
+                    <h2>My Skills</h2>
+                    <p>Skills and tools I have developed through my studies.</p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <article class="skill-card reveal">
+                        <h3>UI/UX Design</h3>
+                        <p>
+                            Figma, wireframing, high-fidelity
+                            prototyping, user flows, interaction
+                            design and visual hierarchy.
+                        </p>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <h3>Programming</h3>
+                        <p>
+                            Java, C++, object-oriented programming,
+                            event handling, application development
+                            and debugging.
+                        </p>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <h3>Database</h3>
+                        <p>
+                            SQL, MariaDB, MySQL, database management,
+                            transaction processing and testing.
+                        </p>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <h3>Design Tools</h3>
+                        <p>
+                            Figma, Microsoft Office and digital
+                            prototyping tools.
+                        </p>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <h3>Personal Skills</h3>
+                        <p>
+                            Problem-solving, teamwork, communication,
+                            time management and project coordination.
+                        </p>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <h3>Languages</h3>
+                        <p>
+                            Malay — Native proficiency.
+                            English — Working proficiency.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- EDUCATION SECTION -->
+        <section class="education-section" id="education">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">MY BACKGROUND</span>
+                    <h2>Education</h2>
+                    <p>My academic journey.</p>
+                </div>
+
+                <div class="education-list">
+
+ 
+<article class="education-card reveal">
+    <span class="education-date">2024 – 2028</span>
+    <h3>Bachelor of Multimedia Computing with Honours</h3>
+    <p>Universiti Malaysia Sarawak (UNIMAS)</p>
+    <p class="education-description">
+        Currently pursuing a degree in Multimedia Computing,
+        focusing on multimedia technology, UI/UX design,
+        programming and digital application development.
+    </p>
+</article>
+
+<article class="education-card reveal">
+    <span class="education-date">2021 – 2023</span>
+    <h3>STPM</h3>
+    <p>SMK Simunjan No. 1, Sarawak</p>
+    <p class="education-description">
+        Completed the Malaysian Higher School Certificate,
+        developing academic knowledge, critical thinking
+        and independent learning skills.
+    </p>
+</article>
+
+<article class="education-card reveal">
+    <span class="education-date">2022</span>
+    <h3>Sijil Pelajaran Malaysia (SPM)</h3>
+    <p>SMK Sri Sadong, Sarawak</p>
+    <p class="education-description">
+        Completed secondary school education and obtained
+        the Sijil Pelajaran Malaysia qualification.
+    </p>
+</article>
+
+
+                     </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">MY WORK</span>
+                    <h2>Projects & Designs</h2>
+                    <p>A selection of academic and creative projects.</p>
+                </div>
+
+                <!-- PROJECT FILTERS -->
+                <div class="project-filters reveal">
+                    <button class="filter-btn active"
+                        data-filter="all" type="button">All</button>
+
+                    <button class="filter-btn"
+                        data-filter="design" type="button">UI/UX Design</button>
+
+                    <button class="filter-btn"
+                        data-filter="programming" type="button">Programming</button>
+
+                    <button class="filter-btn"
+                        data-filter="database" type="button">Database</button>
+                </div>
+
+
+                <div class="projects-grid">
+
+                    <!-- PROJECT 1 -->
+                    <article class="project-card reveal" data-category="design">
+
+                        <img
+                            src="images/art-project.jpg"
+                            alt="ART public transportation application prototype"
+                            class="project-image"
+                        >
+
+                        <div class="project-info">
+                            <span class="project-category">UI/UX DESIGN</span>
+
+                            <h3>ART – Public Transportation Application</h3>
+
+                            <p>
+                                Designed a high-fidelity mobile application
+                                prototype for public transportation in
+                                Kuching. The design includes registration,
+                                journey planning, destination search,
+                                nearby stations, route information and
+                                ticket management.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>Figma</span>
+                                <span>Prototyping</span>
+                                <span>Team Leader</span>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 2 -->
+                    <article class="project-card reveal" data-category="programming">
+
+  
+                    <img
+                    src="images/sdg12-project.jpg"
+                    alt="SDG 12 Learning Hub Java application"
+                    class="project-image"
+                    >
+
+
+                        <div class="project-info">
+                            <span class="project-category">PROGRAMMING</span>
+
+                            <h3>SDG 12 Learning Hub</h3>
+
+                            <p>
+                                Developed a Java Swing desktop application
+                                featuring interactive learning materials
+                                and quizzes about sustainable consumption
+                                and production across ten educational topics.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>Java</span>
+                                <span>Java Swing</span>
+                                <span>OOP</span>
+                            </div>
+                        </div>
+                    </article>
+
+
+<!-- PROJECT 3 -->
+<article class="project-card reveal" data-category="database">
+
+    <img
+        src="images/sql.jpg"
+        alt="SQL transaction processing using the ClassicModels database"
+        loading="lazy"
+    >
+
+    <div class="project-info">
+        <span class="project-category">DATABASE</span>
+
+        <h3>Database Transaction Processing</h3>
+
+        <p>
+            Worked with the ClassicModels database to develop
+            and test SQL transaction scripts for order processing
+            and inventory management. Explored transaction
+            management, ACID properties and data consistency.
+        </p>
+
+        <div class="project-tags">
+            <span>SQL</span>
+            <span>MariaDB</span>
+            <span>ACID</span>
+            <span>Transaction Processing</span>
+        </div>
+    </div>
+
+</article>
+
+
+  <!-- PROJECT 4 -->
+<article class="project-card reveal" data-category="design">
+
+    <img
+        src="images/senada.jpg"
+        alt="SENADA Indigenous Language Preservation mobile app UI/UX showcase"
+        loading="lazy"
+    >
+
+    <div class="project-info">
+        <span class="project-category">UI/UX DESIGN</span>
+
+        <h3>SENADA – Indigenous Language Preservation</h3>
+
+        <p>
+            Designed a mobile application prototype to support
+            Sarawak Malay language learning and cultural heritage
+            preservation. The application features interactive
+            learning, AI voice practice, translation, community
+            interaction and cultural storytelling.
+        </p>
+
+        <div class="project-tags">
+            <span>Figma</span>
+            <span>UI/UX Design</span>
+            <span>Mobile Prototype</span>
+            <span>Top 20 Finalist</span>
+        </div>
+    </div>
+
+</article>
+
+
+                    <!-- PROJECT 5 -->
+                    <article class="project-card reveal" data-category="design">
+
+                       
+                    <img
+                    src="images/warisan.jpg"
+                    alt="Warisan Seni Islam event"
+                    class="project-image"
+                    >
+
+
+                        <div class="project-info">
+                            <span class="project-category">EVENT & DESIGN</span>
+
+                            <h3>Warisan Seni Islam</h3>
+
+                            <p>
+                                Contributed to the transportation unit
+                                for an event featuring taranum and azan
+                                competitions, helping coordinate
+                                transportation and event logistics.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>Teamwork</span>
+                                <span>Coordination</span>
+                                <span>May 2026</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ACTIVITIES AND EXPERIENCE -->
+        <section class="activities-section" id="activities">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">BEYOND THE CLASSROOM</span>
+                    <h2>Activities & Experience</h2>
+                    <p>Experiences that helped me grow and develop new skills.</p>
+                </div>
+
+                <div class="activities-grid">
+
+                    <article class="activity-card reveal">
+                        <span class="activity-date">February – April 2026</span>
+
+                        <h3>Borneo HackWknd 2026</h3>
+
+                        <p>
+                            Participated as a UI/UX Designer and team
+                            member for SENADA, a project focused on
+                            indigenous language and cultural heritage
+                            preservation. The project was selected
+                            among the Top 20 finalists.
+                        </p>
+                    </article>
+
+                    <article class="activity-card reveal">
+                        <span class="activity-date">June – September 2024</span>
+
+                        <h3>Retail Assistant – Olive Pharmacy</h3>
+
+                        <p>
+                            Assisted customers, provided customer
+                            service and supported daily store
+                            operations while developing communication
+                            and teamwork skills.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">LET'S CONNECT</span>
+                    <h2>Contact Me</h2>
+                    <p>Feel free to get in touch for opportunities or collaborations.</p>
+                </div>
+
+                <div class="contact-content">
+
+                    <div class="contact-panel reveal">
+                        <h3>Get In Touch</h3>
+
+                        <div class="contact-details">
+
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:nisasasimi@gmail.com">
+                                nisasasimi@gmail.com
+                                </a>
+                            </div>
+
+                            <div>
+                                <strong>Location</strong>
+                                <span>Sarawak, Malaysia</span>
+                            </div>
+
+                            <div>
+                                <strong>GitHub</strong>
+                                <a href="https://github.com/Khairunnisa0102"
+                                   target="_blank" rel="noopener noreferrer">
+                                    View my GitHub
+                                </a>
+                            </div>
+
+                            <div>
+                                <strong>LinkedIn</strong>
+                                <a href="https://www.linkedin.com/in/khairunnisa-junaidi-768984345/"
+                                   target="_blank" rel="noopener noreferrer">
+                                    Visit LinkedIn
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="contact-panel reveal">
+                        <h3>Send Me a Message</h3>
+
+                    <form
+                        class="contact-form"
+                        id="contact-form"
+                        action="https://formspree.io/f/xeaarrwke"
+                        method="POST"
+                        >
+
+                            <label for="contact-name">Your Name</label>
+                            <input
+                                type="text"
+                                id="contact-name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                            <label for="contact-email">Your Email</label>
+                            <input
+                                type="email"
+                                id="contact-email"
+                                name="_replyto"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                            <label for="contact-message">Your Message</label>
+                            <textarea
+                                id="contact-message"
+                                name="message"
+                                placeholder="Write your message here..."
+                                required
+                            ></textarea>
+
+                            <button type="submit" class="btn">
+                                Send Message
+                            </button>
+
+                            <p class="form-message" id="form-message"
+                               aria-live="polite"></p>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>
+                © <span id="year"></span> Khairunnisa.
+                Designed with care.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="back-to-top"
+        type="button" aria-label="Back to top">
+        ↑
+    </button>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
